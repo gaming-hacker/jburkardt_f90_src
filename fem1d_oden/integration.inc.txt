@@ -1,0 +1,4 @@
+c "integration.inc"
+c
+      common /integration/ xi(4,4), w(4,4)
+

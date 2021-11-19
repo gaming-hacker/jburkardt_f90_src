@@ -1,0 +1,4 @@
+c "bc_data.inc"
+c
+      common /bc_data/ vbc(2,2), point(5), kbc(2), kpoint(5)
+

@@ -1,0 +1,5 @@
+c "control.inc"
+c
+      character*8 title
+      common /control/ title(10), nnode, nelem, nmat, npoint
+

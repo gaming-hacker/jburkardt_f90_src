@@ -1,0 +1,350 @@
+<html>
+
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>
+      UMFPACK_2.0 - Solution of Sparse Unsymmetric Linear Systems
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      UMFPACK_2.0 <br> Solution of Sparse Unsymmetric Linear Systems
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>UMFPACK_2.0</b>
+      is a FORTRAN77 library which
+      solves unsymmetric sparse linear systems,
+      and represents an obsolete version of the program which
+      has since been rewritten in C,
+      by Timothy Davis, Iain Duff.
+    </p>
+
+    <p>
+      UMFPACK Version 2.0 is a package for solving systems of sparse linear
+      systems, Ax=b, where A is sparse and can be unsymmetric.  It is written
+      in ANSI Fortran77.  There are options for choosing a good pivot order,
+      factorizing a subsequent matrix with the same pivot order and nonzero
+      pattern as a previously factorized matrix, and solving systems of linear
+      equations with the factors (with A, L, or U, or their transposes). 
+      Iterative refinement, with sparse backward error estimates, can be
+      performed.  Both single and double precision routines are available.
+    </p>
+
+    <p>
+      There are four primary routines that can be called by the user (where "*"
+      is D for double precision or S for single precision):
+      <ul>
+        <li>
+          <b>UM*2IN:</b> sets the default the control parameters for 
+          UM*2FA, UM*2RF, and UM*2SO.
+        </li>
+        <li>
+          <b>UM*2FA:</b> factors A into PAQ=LU, finding the pivot order (P and Q)
+                based on both numerical and fill-reducing criteria.  This
+                routine performs both symbolic and numerical factorization
+                in a single step.
+        </li>
+        <li>
+          <b>UM*2RF:</b> factors A into PAQ=LU, using information (same P and Q and the
+                same symbolic factorization) from a prior call to UM*2FA.
+                Normally significantly faster than UM*2FA, since UM*2RF only
+                performs numerical factorization.
+        </li>
+        <li>
+          <b>UM*2SO:</b> solves a system of linear equations using the factors,
+                optionally performing iterative refinement.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <pre>
+    ***********************************************************************
+    * NOTICE:  "The UMFPACK Package may be used SOLELY for educational,   *
+    * research, and benchmarking purposes by non-profit organizations and *
+    * the U.S. government.  Commercial and other organizations may make  *
+    * use of UMFPACK SOLELY for benchmarking purposes only.  UMFPACK may  *
+    * be modified by or on behalf of the User for such use but at no time *
+    * shall UMFPACK or any such modified version of UMFPACK become the    *
+    * property of the User.  UMFPACK is provided without warranty of any  *
+    * kind, either expressed or implied.  Neither the Authors nor their   *
+    * employers shall be liable for any direct or consequential loss or   *
+    * damage whatsoever arising out of the use or misuse of UMFPACK by    *
+    * the User.  UMFPACK must not be sold.  You may make copies of        *
+    * UMFPACK, but this NOTICE and the Copyright notice must appear in    *
+    * all copies.  Any other use of UMFPACK requires written permission.  *
+    * Your use of UMFPACK is an implicit agreement to these conditions."  *
+    *                                                                     *
+    * The MA38 Package in the Harwell Subroutine Library (HSL) has        *
+    * equivalent functionality (and identical calling interface) as       *
+    * UMFPACK.  It is available for commercial use.   Technical reports,  *
+    * information on HSL, and matrices are available via the World Wide   *
+    * Web at http://www.cis.rl.ac.uk/struct/ARCD/NUM.html, or by          *
+    * anonymous ftp at seamus.cc.rl.ac.uk/pub.  Also contact John         *
+    * Harding, Harwell Subroutine Library, B 552, AEA Technology,         *
+    * Harwell, Didcot, Oxon OX11 0RA, England.                            *
+    * telephone (44) 1235 434573, fax (44) 1235 434340,                   *
+    * email john.harding@aeat.co.uk, who will provide details of price    *
+    * and conditions of use.                                              *
+    ***********************************************************************
+    </pre>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>UMFPACK_2.0</b> is available in
+      <a href = "umfpack_2.0.html">a FORTRAN77 version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../mgmres/mgmres.html">
+      MGMRES</a>,
+      a FORTRAN77 library which
+      applies the restarted Generalized Minimum Residual (GMRES) algorithm 
+      to solve a sparse linear system, by Lili Ju.
+    </p>
+
+    <p>
+      <a href = "../sparsekit/sparsekit.html">
+      SPARSEKIT</a>,
+      a FORTRAN77 library which
+      implements operations on sparse matrices, including conversion
+      between various formats,
+      by Yousef Saad.
+    </p>
+
+    <p>
+      <a href = "../sparsepak/sparsepak.html">
+      SPARSEPAK</a>,
+      a FORTRAN77 library which
+      forms an obsolete version of the Waterloo Sparse Matrix Package.
+    </p>
+
+    <p>
+      <a href = "../templated/templated.html">
+      TEMPLATED</a>,
+      a FORTRAN77 library which
+      carries out simple versions of various iterative solvers.
+      This is the double precision version.
+    </p>
+
+    <p>
+      <a href = "../templates/templates.html">
+      TEMPLATES</a>,
+      a FORTRAN77 library which
+      carries out simple versions of various iterative solvers.
+      This is the single precision version.
+    </p>
+
+    <p>
+      <a href = "../umfpack/umfpack.html">
+      UMFPACK</a>,
+      FORTRAN77 programs which
+      demonstrate the use of the C library UMFPACK to
+      solve large sparse linear systems of equations.
+    </p>
+
+    <h3 align = "center">
+      Author:
+    </h3>
+
+    <p>
+      Timothy Davis, Iain Duff
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Timothy Davis,<br>
+          Algorithm 832: UMFPACK, an unsymmetric-pattern multifrontal method,<br>
+          ACM Transactions on Mathematical Software,<br>
+          Volume 30, Number 2, June 2004, pages 196-199. 
+        </li>
+        <li>
+          Timothy Davis,<br>
+          Direct Methods for Sparse Linear Systems,<br>
+          SIAM, 2006,<br>
+          ISBN: 0898716136,<br>
+          LC: QA188.D386.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "umfpack_2.0.f">umfpack_2.0.f</a>, the source code.
+        </li>
+        <li>
+          <a href = "umfpack_2.0.sh">umfpack_2.0.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "umfpack_2.0_prb.f">umfpack_2.0_prb.f</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "umfpack_2.0_prb.sh">umfpack_2.0_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "umfpack_2.0_prb_output.txt">umfpack_2.0_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>UMS2CO</b> converts matrix from triplet to column-oriented form.
+        </li>
+        <li>
+          <b>UMS2ER</b> prints error and warning messages and sets error flags.
+        </li>
+        <li>
+          <b>UMS2F0</b> factors an unsymmetric sparse matrix in column form.
+        </li>
+        <li>
+          <b>UMS2F1</b> is a utility routine which factors part of the matrix.
+        </li>
+        <li>
+          <b>UMS2F2</b> is a utility routine which factors part of the matrix.
+        </li>
+        <li>
+          <b>UMS2FA</b> computes the LU factors of a sparse matrix.
+        </li>
+        <li>
+          <b>UMS2FB</b> is a utility function which finds permutations to block triangular form.
+        </li>
+        <li>
+          <b>UMS2FG</b> is a utility routine which performs garbage collection.
+        </li>
+        <li>
+          <b>UMS2IN</b> initializes program parameters to default values.
+        </li>
+        <li>
+          <b>UMS2LT</b> is a utility routine which solves a lower triangular system.
+        </li>
+        <li>
+          <b>UMS2OF</b> is a utility routine which permutes off-diagonal blocks.
+        </li>
+        <li>
+          <b>UMS2P1</b> is a utility function which prints arguments for several other routines.
+        </li>
+        <li>
+          <b>UMS2P2</b> is a utility which prints error and warning messages for several functions.
+        </li>
+        <li>
+          <b>UMS2R0</b> is a utility which refactors a sparse matrix.
+        </li>
+        <li>
+          <b>UMS2R2</b> is a utility which refactors part of a matrix.
+        </li>
+        <li>
+          <b>UMS2RA</b> is a utility which converts a column-oriented matrix to arrowhead form.
+        </li>
+        <li>
+          <b>UMS2RF</b> computes the LU factorization of a sparse matrix.
+        </li>
+        <li>
+          <b>UMS2RG</b> is a utility which performs garbage collection for UMS2R2.
+        </li>
+        <li>
+          <b>UMS2S2</b> is a utility routine which solves a factored system.
+        </li>
+        <li>
+          <b>UMS2SL</b> is a utility which solves a lower triangular system.
+        </li>
+        <li>
+          <b>UMS2SO</b> solves a linear system associated with a factored sparse matrix.
+        </li>
+        <li>
+          <b>UMS2SU</b> is a utility which solves an upper triangular system.
+        </li>
+        <li>
+          <b>UMS2UT</b> is a utility which solves an upper triangular system.
+        </li>
+        <li>
+          <b>ISAMAX</b> returns the index of the vector element of maximum absolute value.
+        </li>
+        <li>
+          <b>SGEMM</b> computes C = alpha*A*B + beta*C with optional transposes.
+        </li>
+        <li>
+          <b>SGEMV</b> computes y = alpha*A*x+beta*y with optional transpose.
+        </li>
+        <li>
+          <b>STRSM</b> solves A*x=alpha*B with optional transposes.
+        </li>
+        <li>
+          <b>STRSV</b> solves A*x=b or A'*x=b.
+        </li>
+        <li>
+          <b>LSAME</b> determines whether two characters are equal.
+        </li>
+        <li>
+          <b>MC13E</b> permutes a sparse matrix to block triangular form.
+        </li>
+        <li>
+          <b>MC21B</b> permutes a sparse matrix to put entries on the diagonal.
+        </li>
+        <li>
+          <b>XERBLA</b> is an error handler for LAPACK routines.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../f77_src.html">
+      the FORTRAN77 source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 01 February 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

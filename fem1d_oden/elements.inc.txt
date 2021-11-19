@@ -1,0 +1,4 @@
+c "elements.inc"
+c
+      common /elements/ kind(99), mat(99), nodes(4,99), nint(99)
+
